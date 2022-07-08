@@ -1,0 +1,29 @@
+
+{
+  "status": 200,
+  "message": "success",
+  "totalRecord": 6,
+  "totalPage": 3,
+  "data": [
+    {
+      "id": 1,
+      "slug": "new_apple_iphone_11_64gb_black",
+      "title": "New Apple iPhone 11 (64GB) - Black",
+      "description": "New Apple iPhone 11 (64GB) - Black",
+      "price": 51999,
+      "featured_image": "http://205.134.254.135/~mobile/MtProject/uploads/product_image/90339.jpg",
+      "status": "0",
+      "created_at": "2020-12-01T06:28:42.000000Z"
+    },
+    {
+      "id": 2,
+      "slug": "apple_iphone_7_32gb_black",
+      "title": "Apple iPhone 7 (32GB) - Black",
+      "description": "4.7-inch Retina HD LCD display\r\nWater and dust resistant (1 meter for up to 30 minutes, IP67)\r\nSingle 12MP Wide camera with Auto HDR and 4K video up to 30fps\r\n7MP FaceTime HD camera with 1080p video\r\nTouch ID for secure authentication and Apple Pay\r\nA10 Fusion chip\r\niOS 13 with Dark Mode, new tools for editing photos and video, and brand new privacy features",
+      "price": 24999,
+      "featured_image": "http://205.134.254.135/~mobile/MtProject/uploads/product_image/58444.jpg",
+      "status": "0",
+      "created_at": "2020-12-01T06:34:34.000000Z"
+    }
+  ]
+}

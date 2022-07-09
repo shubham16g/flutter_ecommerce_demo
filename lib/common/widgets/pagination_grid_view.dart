@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class PaginationListView<T> extends StatefulWidget {
-  const PaginationListView({
+class PaginationGridView<T> extends StatefulWidget {
+  const PaginationGridView({
     Key? key,
     required this.items,
     required this.onScrolledToBottom,
@@ -13,14 +13,14 @@ class PaginationListView<T> extends StatefulWidget {
   final List<T?> items;
   final VoidCallback onScrolledToBottom;
   final SliverGridDelegate gridDelegate;
-  final Widget Function(BuildContext context, int index) itemBuilder;
+  final Widget Function(BuildContext context, T item) itemBuilder;
   final Widget Function(BuildContext context)? loaderBuilder;
 
   @override
-  State<PaginationListView> createState() => _PaginationListViewState();
+  State<PaginationGridView<T>> createState() => _PaginationGridViewState();
 }
 
-class _PaginationListViewState extends State<PaginationListView> {
+class _PaginationGridViewState<T> extends State<PaginationGridView<T>> {
   late ScrollController controller;
 
   @override
@@ -42,7 +42,7 @@ class _PaginationListViewState extends State<PaginationListView> {
       itemBuilder: (context, index) {
         final item = widget.items[index];
         if (item != null) {
-          return widget.itemBuilder(context, index);
+          return widget.itemBuilder(context, item);
         } else {
           if (widget.loaderBuilder != null) {
             return widget.loaderBuilder!(context);

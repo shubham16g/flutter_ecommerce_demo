@@ -27,10 +27,9 @@ class ProductsPage extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else if (state is ProductLoaded) {
-            return PaginationListView<ProductEntity>(
+            return PaginationGridView<ProductEntity>(
               items: state.products,
-              itemBuilder: (context, index) {
-                final item = state.products[index]!;
+              itemBuilder: (context, item) {
                 return ItemCard(entity: item);
               },
               onScrolledToBottom: () {},

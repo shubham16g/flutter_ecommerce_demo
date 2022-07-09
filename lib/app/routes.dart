@@ -2,7 +2,7 @@ import 'package:ecom/ui/products/pages/products_page.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
-  static const productsPage = '/products';
+  static const productsPage = '/';
   static const cartPage = '/cart';
 }
 

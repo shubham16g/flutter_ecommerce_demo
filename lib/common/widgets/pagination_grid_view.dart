@@ -38,7 +38,7 @@ class _PaginationGridViewState<T> extends State<PaginationGridView<T>> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(15),
       itemBuilder: (context, index) {
         final item = widget.items[index];
         if (item != null) {

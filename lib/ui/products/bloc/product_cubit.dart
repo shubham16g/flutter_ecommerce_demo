@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:ecom/repositories/cart_repository.dart';
 
 import '../../../common/classes/pagination_manager.dart';
 import '../../../models/response/product_entity.dart';
@@ -9,6 +10,7 @@ part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
   final ProductsRepository _productsRepository;
+  late CartRepository _cartRepository;
   ProductCubit(this._productsRepository) : super(ProductInitial()){
     loadsProducts();
   }
@@ -30,5 +32,9 @@ class ProductCubit extends Cubit<ProductState> {
         emit(ProductLoadError(list));
       }
     });
+  }
+
+  void addToCart(ProductEntity entity){
+    _cartRepository.addToCart(entity);
   }
 }

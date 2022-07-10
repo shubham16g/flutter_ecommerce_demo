@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:ecom/di/get_it_init.dart';
 import 'package:ecom/floor/daos/cart_dao.dart';
 import 'package:ecom/floor/db/app_database.dart';
 import 'package:ecom/floor/entities/cart_item.dart';
@@ -16,7 +17,7 @@ class CartRepository {
   }
 
   init() async {
-    _cartDao = await AppDatabase.instance.cartDao;
+    _cartDao = locator.get();
   }
 
   Future<void> addToCart(ProductEntity product) async {
@@ -26,6 +27,10 @@ class CartRepository {
     } else {
       return _cartDao.insertCartItem(CartItem.fromProduct(product, 1));
     }
+  }
+
+  Future<void> updateCartQuantity(int id, int quantity) async {
+    _cartDao.updateQuantity(id, quantity);
   }
 
   Stream<List<CartItem>> getAllCartItems() => _cartDao.getAllCartItems();

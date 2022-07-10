@@ -10,8 +10,8 @@ part 'product_state.dart';
 
 class ProductCubit extends Cubit<ProductState> {
   final ProductsRepository _productsRepository;
-  late CartRepository _cartRepository;
-  ProductCubit(this._productsRepository) : super(ProductInitial()){
+  final CartRepository _cartRepository;
+  ProductCubit(this._productsRepository, this._cartRepository) : super(ProductInitial()){
     loadsProducts();
   }
 

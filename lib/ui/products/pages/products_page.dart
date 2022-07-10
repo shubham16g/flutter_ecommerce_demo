@@ -1,3 +1,4 @@
+import 'package:ecom/app/routes.dart';
 import 'package:ecom/common/widgets/pagination_grid_view.dart';
 import 'package:ecom/models/response/product_entity.dart';
 import 'package:ecom/ui/products/bloc/product_cubit.dart';
@@ -18,89 +19,94 @@ class ProductsPage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.shopping_cart_outlined),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, Routes.cartPage);
+            },
           ),
         ],
       ),
-      body: BlocBuilder<ProductCubit, ProductState>(
-        bloc: ProductCubit(locator.get()),
-        builder: (context, state) {
-        if (state is ProductInitial) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        } else if (state is ProductLoaded) {
-          return PaginationGridView<ProductEntity>(
-            items: state.products,
-            itemBuilder: (context, item) {
-              return ItemCard(entity: item);
-            },
-            onScrolledToBottom: () {},
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
-              mainAxisExtent: 270,
-              maxCrossAxisExtent: 220,
-            ),
-          );
-        }
-        return PaginationGridView<ProductEntity>(
-          items: [
-            ProductEntity(
-                id: 1,
-                slug: 'slug',
-                title: 'title',
-                description: 'description',
-                image: 'image',
-                price: 98,
-                status: 'status',
-                createdAt: 'createdAt'),
-            ProductEntity(
-                id: 1,
-                slug: 'slug',
-                title: 'title',
-                description: 'description',
-                image: 'image',
-                price: 98,
-                status: 'status',
-                createdAt: 'createdAt'),
-            ProductEntity(
-                id: 1,
-                slug: 'slug',
-                title: 'title',
-                description: 'description',
-                image: 'image',
-                price: 98,
-                status: 'status',
-                createdAt: 'createdAt'),
-            ProductEntity(
-                id: 1,
-                slug: 'slug',
-                title: 'title',
-                description: 'description',
-                image: 'image',
-                price: 98,
-                status: 'status',
-                createdAt: 'createdAt'),
-          ],
-          itemBuilder: (context, item) {
-            return ItemCard(entity: item);
-          },
-          onScrolledToBottom: () {},
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            mainAxisSpacing: 15,
-            crossAxisSpacing: 15,
-            mainAxisExtent: 270,
-            maxCrossAxisExtent: 220,
-          ),
-        );
-      }),
+      body: BlocProvider(
+        create: (context) => ProductCubit(locator.get(), locator.get()),
+        child: BlocBuilder<ProductCubit, ProductState>(
+            builder: (context, state) {
+              if (state is ProductInitial) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              } else if (state is ProductLoaded) {
+                return PaginationGridView<ProductEntity>(
+                  items: state.products,
+                  itemBuilder: (context, item) {
+                    return ItemCard(entity: item);
+                  },
+                  onScrolledToBottom: () {},
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                    mainAxisSpacing: 15,
+                    crossAxisSpacing: 15,
+                    mainAxisExtent: 270,
+                    maxCrossAxisExtent: 220,
+                  ),
+                );
+              }
+              return PaginationGridView<ProductEntity>(
+                items: [
+                  ProductEntity(
+                      id: 1,
+                      slug: 'slug',
+                      title: 'title',
+                      description: 'description',
+                      image: 'image',
+                      price: 98,
+                      status: 'status',
+                      createdAt: 'createdAt'),
+                  ProductEntity(
+                      id: 1,
+                      slug: 'slug',
+                      title: 'title',
+                      description: 'description',
+                      image: 'image',
+                      price: 98,
+                      status: 'status',
+                      createdAt: 'createdAt'),
+                  ProductEntity(
+                      id: 1,
+                      slug: 'slug',
+                      title: 'title',
+                      description: 'description',
+                      image: 'image',
+                      price: 98,
+                      status: 'status',
+                      createdAt: 'createdAt'),
+                  ProductEntity(
+                      id: 1,
+                      slug: 'slug',
+                      title: 'title',
+                      description: 'description',
+                      image: 'image',
+                      price: 98,
+                      status: 'status',
+                      createdAt: 'createdAt'),
+                ],
+                itemBuilder: (context, item) {
+                  return ItemCard(entity: item);
+                },
+                onScrolledToBottom: () {},
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  mainAxisSpacing: 15,
+                  crossAxisSpacing: 15,
+                  mainAxisExtent: 270,
+                  maxCrossAxisExtent: 220,
+                ),
+              );
+            }),
+      ),
     );
   }
 }
 
 class ItemCard extends StatelessWidget {
   final ProductEntity entity;
+
   const ItemCard({Key? key, required this.entity}) : super(key: key);
 
   @override
@@ -137,7 +143,9 @@ class ItemCard extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            SizedBox(height: 37, child: Text(entity.title, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),)),
+            SizedBox(height: 37,
+                child: Text(entity.title, style: const TextStyle(
+                    fontSize: 16, fontWeight: FontWeight.w500),)),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

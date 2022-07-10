@@ -11,17 +11,21 @@ import 'bloc_module.dart';
 
 final locator = GetIt.instance;
 
-Future<void> getItInit(Env env) async {
+Future<bool?> getItInit(Env env) async {
   _setupDefaultDio(env.baseUrl, env.token);
   _databaseInit();
   await registerEndPoints();
   await registerRepositories();
   await registerBlocs();
+  print('openning ');
+  return null;
 }
 
-void _databaseInit() {
+Future<void> _databaseInit() async {
+  final db = await AppDatabase.instance;
   locator.registerLazySingleton<AppDatabase>(
-          () => AppDatabase.instance);
+          () => db);
+  locator.registerLazySingleton(() => locator.get<AppDatabase>().cartDao);
 }
 
 void _setupDefaultDio(String baseUrl, String token) {

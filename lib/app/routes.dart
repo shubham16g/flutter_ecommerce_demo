@@ -1,3 +1,4 @@
+import 'package:ecom/ui/cart/pages/cart_page.dart';
 import 'package:ecom/ui/products/pages/products_page.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class RouteGenerator {
       case Routes.productsPage:
         return ProductsPage();
       case Routes.cartPage:
-        return ProductsPage();
+        return CartPage();
 
     /* Default Page */
       default:

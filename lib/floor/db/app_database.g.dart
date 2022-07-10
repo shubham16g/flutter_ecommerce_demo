@@ -121,6 +121,18 @@ class _$CartDao extends CartDao {
                   'price': item.price,
                   'quantity': item.quantity
                 },
+            changeListener),
+        _cartItemDeletionAdapter = DeletionAdapter(
+            database,
+            'CartItem',
+            ['id'],
+            (CartItem item) => <String, Object?>{
+                  'id': item.id,
+                  'title': item.title,
+                  'image': item.image,
+                  'price': item.price,
+                  'quantity': item.quantity
+                },
             changeListener);
 
   final sqflite.DatabaseExecutor database;
@@ -132,6 +144,8 @@ class _$CartDao extends CartDao {
   final InsertionAdapter<CartItem> _cartItemInsertionAdapter;
 
   final UpdateAdapter<CartItem> _cartItemUpdateAdapter;
+
+  final DeletionAdapter<CartItem> _cartItemDeletionAdapter;
 
   @override
   Stream<List<CartItem>> getAllCartItems() {
@@ -166,5 +180,10 @@ class _$CartDao extends CartDao {
   @override
   Future<void> updateCartItem(CartItem cartItem) async {
     await _cartItemUpdateAdapter.update(cartItem, OnConflictStrategy.abort);
+  }
+
+  @override
+  Future<void> deleteCartItem(CartItem cartItem) async {
+    await _cartItemDeletionAdapter.delete(cartItem);
   }
 }

@@ -7,11 +7,10 @@ class CartInitial extends CartState {}
 class CartLoaded extends CartState {
   final List<CartItem> cartItems;
 
+  double get totalPrice => cartItems.fold<double>(0, (sum, item) => sum + item.price * item.quantity);
+  int get totalItems => cartItems.fold<int>(0, (sum, item) => sum + item.quantity);
+
   CartLoaded(this.cartItems);
 }
 
-class ProductLoadError extends CartState {
-  final List<ProductEntity?> products;
-
-  ProductLoadError(this.products);
-}
+class CartEmpty extends CartState {}

@@ -16,7 +16,11 @@ class CartCubit extends Cubit<CartState> {
   late StreamSubscription _subscription;
   CartCubit(this._cartRepository) : super(CartInitial()){
     _subscription = _cartRepository.getAllCartItems().listen((list) {
-      emit(CartLoaded(list));
+      if (list.isEmpty) {
+        emit(CartEmpty());
+      } else {
+        emit(CartLoaded(list));
+      }
     });
   }
 

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
                 elevation: 0,
               )
           ),
-          initialRoute: Routes.cartPage,
+          initialRoute: Routes.productsPage,
           onGenerateRoute: RouteGenerator.builder,
         ) : Container(
           color: Colors.white,

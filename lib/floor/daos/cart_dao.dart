@@ -19,10 +19,17 @@ abstract class CartDao {
   Future<void> updateQuantity(int id, int quantity) async {
     final cartItem = await getCartItem(id);
     if (cartItem != null) {
+      if (quantity == 0) {
+        deleteCartItem(cartItem);
+        return;
+      }
       cartItem.quantity = quantity;
       await updateCartItem(cartItem);
     }
   }
+
+  @delete
+  Future<void> deleteCartItem(CartItem cartItem);
 
   Future<void> insertOrUpdate(CartItem cartItem) async {
     final existingCartItem = await getCartItem(cartItem.id);

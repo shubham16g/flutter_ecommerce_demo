@@ -48,55 +48,8 @@ class ProductsPage extends StatelessWidget {
                   ),
                 );
               }
-              return PaginationGridView<ProductEntity>(
-                items: [
-                  ProductEntity(
-                      id: 1,
-                      slug: 'slug',
-                      title: 'title',
-                      description: 'description',
-                      image: 'image',
-                      price: 98,
-                      status: 'status',
-                      createdAt: 'createdAt'),
-                  ProductEntity(
-                      id: 1,
-                      slug: 'slug',
-                      title: 'title',
-                      description: 'description',
-                      image: 'image',
-                      price: 98,
-                      status: 'status',
-                      createdAt: 'createdAt'),
-                  ProductEntity(
-                      id: 1,
-                      slug: 'slug',
-                      title: 'title',
-                      description: 'description',
-                      image: 'image',
-                      price: 98,
-                      status: 'status',
-                      createdAt: 'createdAt'),
-                  ProductEntity(
-                      id: 1,
-                      slug: 'slug',
-                      title: 'title',
-                      description: 'description',
-                      image: 'image',
-                      price: 98,
-                      status: 'status',
-                      createdAt: 'createdAt'),
-                ],
-                itemBuilder: (context, item) {
-                  return ItemCard(entity: item);
-                },
-                onScrolledToBottom: () {},
-                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                  mainAxisSpacing: 15,
-                  crossAxisSpacing: 15,
-                  mainAxisExtent: 270,
-                  maxCrossAxisExtent: 220,
-                ),
+              return const Center(
+                child: Text("Something went wrong"),
               );
             }),
       ),
@@ -150,11 +103,15 @@ class ItemCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("\$${entity.price}"),
-                IconButton(
-                    onPressed: () {
-                      BlocProvider.of<ProductCubit>(context).addToCart(entity);
-                    },
-                    icon: const Icon(Icons.shopping_cart)),
+                Material(
+                  shape: const CircleBorder(),
+                  clipBehavior: Clip.hardEdge,
+                  child: IconButton(
+                      onPressed: () {
+                        BlocProvider.of<ProductCubit>(context).addToCart(entity);
+                      },
+                      icon: const Icon(Icons.shopping_cart)),
+                ),
               ],
             ),
           ],

@@ -15,7 +15,7 @@ class CartPage extends StatelessWidget {
         centerTitle: true,
       ),
       body: BlocProvider(
-        create: (context) => CartCubit(locator.get()),
+        create: (context) => locator<CartCubit>(),
         child: BlocBuilder<CartCubit, CartState>(
           builder: (context, state) {
             if (state is CartInitial) {

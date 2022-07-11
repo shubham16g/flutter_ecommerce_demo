@@ -13,7 +13,9 @@ class ProductEntity {
   final double price;
   final String status;
   @JsonKey(name: "created_at")
-  String? createdAt;
+  final String? createdAt;
+  @JsonKey(ignore: true)
+  int quantity;
 
   ProductEntity(
       {required this.id,
@@ -23,7 +25,9 @@ class ProductEntity {
       required this.image,
       required this.price,
       required this.status,
-      required this.createdAt});
+      required this.createdAt,
+        this.quantity = 0
+      });
 
   factory ProductEntity.fromJson(Map<String, dynamic> json) => _$ProductEntityFromJson(json);
 

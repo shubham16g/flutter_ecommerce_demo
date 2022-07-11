@@ -1,6 +1,9 @@
 
 
 import 'package:dio/dio.dart';
+import 'package:ecom/floor/daos/cart_dao.dart';
+import 'package:ecom/models/request/products_request.dart';
+import 'package:ecom/network/network_error.dart';
 
 import '../models/response/products_response.dart';
 import '../network/endpoints/products_endpoint.dart';
@@ -8,29 +11,24 @@ import '../network/endpoints/products_endpoint.dart';
 class ProductsRepository {
 
   final ProductsEndpoint _productsEndpoint;
+  final CartDao _cartDao;
 
-  ProductsRepository(this._productsEndpoint);
+  ProductsRepository(this._productsEndpoint, this._cartDao);
 
   Future<ProductsResponse> getProducts(int page) async {
     try {
-      print('called');
-      return await _productsEndpoint.getProducts();
-    } catch (obj) {
-      print(obj);
-      switch (obj.runtimeType) {
-        case DioError:
-        // Here's the sample to get the failed response error code and message
-          final res = (obj as DioError).response;
-          return ProductsResponse.error(
-            res?.statusCode ?? 0,
-            res?.statusMessage ?? 'Something went\'s wrong!',
-          );
-        default:
-          return ProductsResponse.error(
-            0,
-            'Unknown Error',
-          );
+      final response = await _productsEndpoint.getProducts(ProductsRequest(page: page, perPage: 5));
+      if(response.status == 200) {
+        return response;
+      } else {
+        throw NetworkError(response.status, response.message);
       }
+    } catch (obj) {
+      final networkError = NetworkError.from(obj);
+      return ProductsResponse.error(
+        networkError.status,
+        networkError.message
+      );
     }
   }
 }

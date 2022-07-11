@@ -6,12 +6,12 @@ class ProductInitial extends ProductState {}
 
 class ProductLoaded extends ProductState {
   final List<ProductEntity?> products;
-
-  ProductLoaded(this.products);
+  final String? error;
+  ProductLoaded(this.products, {this.error});
 }
 
 class ProductLoadError extends ProductState {
-  final List<ProductEntity?> products;
 
-  ProductLoadError(this.products);
+  final String error;
+  ProductLoadError(this.error);
 }

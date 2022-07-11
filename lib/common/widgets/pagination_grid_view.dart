@@ -7,9 +7,10 @@ class PaginationGridView<T> extends StatefulWidget {
     required this.onScrolledToBottom,
     required this.itemBuilder,
     required this.gridDelegate,
-    this.loaderBuilder,
+    this.loaderBuilder, this.padding,
   }) : super(key: key);
 
+  final EdgeInsetsGeometry? padding;
   final List<T?> items;
   final VoidCallback onScrolledToBottom;
   final SliverGridDelegate gridDelegate;
@@ -38,7 +39,7 @@ class _PaginationGridViewState<T> extends State<PaginationGridView<T>> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      padding: const EdgeInsets.all(15),
+      padding: widget.padding ?? EdgeInsets.zero,
       itemBuilder: (context, index) {
         final item = widget.items[index];
         if (item != null) {

@@ -28,7 +28,12 @@ class ProductsPage extends StatelessWidget {
       ),
       body: BlocProvider(
         create: (context) => locator<ProductCubit>(),
-        child: BlocBuilder<ProductCubit, ProductState>(
+        child: BlocConsumer<ProductCubit, ProductState>(
+          listener: (context, state){
+            if (state is ProductLoaded && state.error != null){
+              context.showSnackbar(state.error!);
+            }
+          },
             builder: (context, state) {
               if (state is ProductInitial) {
                 return const Center(
@@ -36,16 +41,32 @@ class ProductsPage extends StatelessWidget {
                 );
               } else if (state is ProductLoaded) {
                 return PaginationGridView<ProductEntity>(
+                  padding: const EdgeInsets.all(20),
                   items: state.products,
                   itemBuilder: (context, item) {
                     return ItemCard(entity: item);
                   },
                   onScrolledToBottom: () {},
                   gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 15,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
                     mainAxisExtent: 270,
                     maxCrossAxisExtent: 220,
+                  ),
+                );
+              } else if (state is ProductLoadError) {
+                return  Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(state.error, style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),),
+                      const SizedBox(height: 20),
+                      TextButton(onPressed: (){
+                        BlocProvider.of<ProductCubit>(context).loadsProducts();
+                      }, child: const Text("Retry"), style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(Colors.blue.withOpacity(0.2))
+                      ),),
+                    ],
                   ),
                 );
               }
@@ -69,7 +90,7 @@ class ItemCard extends StatelessWidget {
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.1),
+            color: Colors.black.withOpacity(0.08),
             spreadRadius: 2,
             blurRadius: 3,
             offset: Offset(0, 2), // changes position of shadow

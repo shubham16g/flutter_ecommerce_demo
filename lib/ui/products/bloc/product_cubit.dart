@@ -18,18 +18,23 @@ class ProductCubit extends Cubit<ProductState> {
   final paginationManager = PaginationManager<ProductEntity>();
 
   Future<void> loadsProducts() async {
+    if(paginationManager.list.isEmpty){
+      emit(ProductInitial());
+    }
     paginationManager.startFetching(fetcher: (page) async {
       final response = await _productsRepository.getProducts(page);
       if (response.status == 200) {
         return PaginationResponse.success(list: response.data!, lastPage: response.totalPage!);
       } else {
-        return PaginationResponse.error();
+        return PaginationResponse.error(errorCode: response.status, errorMessage: response.message);
       }
-    }, postCallback: (isSuccess, list){
-      if(isSuccess) {
+    }, successCallback: (list){
         emit(ProductLoaded(list));
+    }, errorCallback: (int errorCode, String errorMessage) {
+      if(paginationManager.list.isNotEmpty){
+        emit(ProductLoaded(paginationManager.list, error: errorMessage));
       } else {
-        emit(ProductLoadError(list));
+        emit(ProductLoadError(errorMessage));
       }
     });
   }

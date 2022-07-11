@@ -23,7 +23,7 @@ class ProductsRepository {
           final res = (obj as DioError).response;
           return ProductsResponse.error(
             res?.statusCode ?? 0,
-            res?.statusMessage ?? 'No Message',
+            res?.statusMessage ?? 'Something went\'s wrong!',
           );
         default:
           return ProductsResponse.error(

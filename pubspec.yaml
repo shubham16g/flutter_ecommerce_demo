@@ -1,5 +1,5 @@
 name: ecom
-description: Simple E-Commerce App on Fluuter.
+description: Simple E-Commerce App on Flutter.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
@@ -41,6 +41,7 @@ dependencies:
   get_it: ^7.2.0
   floor: ^1.3.0
   sqflite: ^2.0.3
+
 
 dev_dependencies:
   flutter_test:

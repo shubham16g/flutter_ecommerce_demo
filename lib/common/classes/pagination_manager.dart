@@ -7,7 +7,9 @@ class PaginationManager<T> {
 
   Future<void> startFetching(
       {required Future<PaginationResponse<T>> Function(int page) fetcher,
-        required Function(bool isSuccess, List<T?> list) postCallback}) async {
+        required Function(List<T?> list) successCallback,
+        required Function(int errorCode, String errorMessage) errorCallback,
+      }) async {
     if (loading || page > lastPage) return;
     loading = true;
     final response = await fetcher(page);
@@ -21,9 +23,9 @@ class PaginationManager<T> {
         list.add(null);
       }
       page++;
-      postCallback(true, list);
+      successCallback(list);
     } else {
-      postCallback(false, list);
+      errorCallback(response.errorCode, response.errorMessage);
     }
     loading = false;
   }
@@ -32,8 +34,14 @@ class PaginationManager<T> {
 class PaginationResponse<T> {
   final List<T>? list;
   final int lastPage;
+  final int errorCode;
+  final String errorMessage;
 
-  PaginationResponse.success({required this.list, required this.lastPage});
+  PaginationResponse.success({required this.list, required this.lastPage}) :
+      errorCode = 0,
+      errorMessage = '';
 
-  PaginationResponse.error({this.list, this.lastPage = -1});
+  PaginationResponse.error({required this.errorCode, required this.errorMessage}) :
+      list = null,
+      lastPage = -1;
 }

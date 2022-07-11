@@ -1,11 +1,12 @@
 import 'package:ecom/app/routes.dart';
+import 'package:ecom/common/utils/ui_utils.dart';
 import 'package:ecom/common/widgets/pagination_grid_view.dart';
 import 'package:ecom/models/response/product_entity.dart';
 import 'package:ecom/ui/products/bloc/product_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../di/get_it_init.dart';
+import '../../../di/service_locator.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({Key? key}) : super(key: key);
@@ -26,7 +27,7 @@ class ProductsPage extends StatelessWidget {
         ],
       ),
       body: BlocProvider(
-        create: (context) => ProductCubit(locator.get(), locator.get()),
+        create: (context) => locator<ProductCubit>(),
         child: BlocBuilder<ProductCubit, ProductState>(
             builder: (context, state) {
               if (state is ProductInitial) {
@@ -104,11 +105,13 @@ class ItemCard extends StatelessWidget {
               children: [
                 Text("\$${entity.price}"),
                 Material(
+                  color: Colors.transparent,
                   shape: const CircleBorder(),
                   clipBehavior: Clip.hardEdge,
                   child: IconButton(
                       onPressed: () {
                         BlocProvider.of<ProductCubit>(context).addToCart(entity);
+                        context.showSnackbar('Product added to cart');
                       },
                       icon: const Icon(Icons.shopping_cart)),
                 ),

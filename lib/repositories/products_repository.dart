@@ -1,7 +1,6 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:ecom/models/request/products_request.dart';
 
 import '../models/response/products_response.dart';
 import '../network/endpoints/products_endpoint.dart';

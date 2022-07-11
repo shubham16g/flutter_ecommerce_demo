@@ -1,5 +1,5 @@
 import 'package:ecom/app/routes.dart';
-import 'package:ecom/di/get_it_init.dart';
+import 'package:ecom/di/service_locator.dart';
 import 'package:ecom/env/env.dart';
 import 'package:ecom/ui/products/bloc/product_cubit.dart';
 import 'package:flutter/material.dart';

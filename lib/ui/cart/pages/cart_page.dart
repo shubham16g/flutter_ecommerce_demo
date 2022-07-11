@@ -1,4 +1,4 @@
-import 'package:ecom/di/get_it_init.dart';
+import 'package:ecom/di/service_locator.dart';
 import 'package:ecom/floor/entities/cart_item.dart';
 import 'package:ecom/ui/cart/bloc/cart_cubit.dart';
 import 'package:flutter/material.dart';

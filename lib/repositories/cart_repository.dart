@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:ecom/di/get_it_init.dart';
+import 'package:ecom/di/service_locator.dart';
 import 'package:ecom/floor/daos/cart_dao.dart';
 import 'package:ecom/floor/db/app_database.dart';
 import 'package:ecom/floor/entities/cart_item.dart';
@@ -10,15 +10,9 @@ import '../models/response/products_response.dart';
 import '../network/endpoints/products_endpoint.dart';
 
 class CartRepository {
-  late CartDao _cartDao;
+  final CartDao _cartDao;
 
-  CartRepository() {
-    init();
-  }
-
-  init() async {
-    _cartDao = locator.get();
-  }
+  CartRepository(this._cartDao);
 
   Future<void> addToCart(ProductEntity product) async {
     final oldItem = await _cartDao.getCartItem(product.id);

@@ -5,7 +5,10 @@ import 'package:floor/floor.dart';
 @dao
 abstract class CartDao {
   @Query('SELECT * FROM CartItem')
-  Stream<List<CartItem>> getAllCartItems();
+  Stream<List<CartItem>> allItemsStream();
+
+  @Query('SELECT * FROM CartItem')
+  Future<List<CartItem>> getAllItems();
 
   @insert
   Future<void> insertCartItem(CartItem cartItem);

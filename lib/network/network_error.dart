@@ -18,5 +18,5 @@ class NetworkError {
             ? (obj as DioError).response?.statusMessage ?? ''
             : obj.runtimeType is NetworkError
                 ? (obj as NetworkError).message
-                : 'Unknown error';
+                : 'Something went\'s wrong!';
 }

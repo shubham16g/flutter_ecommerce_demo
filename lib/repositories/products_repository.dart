@@ -11,9 +11,8 @@ import '../network/endpoints/products_endpoint.dart';
 class ProductsRepository {
 
   final ProductsEndpoint _productsEndpoint;
-  final CartDao _cartDao;
 
-  ProductsRepository(this._productsEndpoint, this._cartDao);
+  ProductsRepository(this._productsEndpoint);
 
   Future<ProductsResponse> getProducts(int page) async {
     try {

@@ -66,7 +66,7 @@ class _$AppDatabase extends AppDatabase {
   Future<sqflite.Database> open(String path, List<Migration> migrations,
       [Callback? callback]) async {
     final databaseOptions = sqflite.OpenDatabaseOptions(
-      version: 2,
+      version: 3,
       onConfigure: (database) async {
         await database.execute('PRAGMA foreign_keys = ON');
         await callback?.onConfigure?.call(database);
@@ -148,7 +148,7 @@ class _$CartDao extends CartDao {
   final DeletionAdapter<CartItem> _cartItemDeletionAdapter;
 
   @override
-  Stream<List<CartItem>> getAllCartItems() {
+  Stream<List<CartItem>> allItemsStream() {
     return _queryAdapter.queryListStream('SELECT * FROM CartItem',
         mapper: (Map<String, Object?> row) => CartItem(
             id: row['id'] as int,
@@ -158,6 +158,17 @@ class _$CartDao extends CartDao {
             quantity: row['quantity'] as int),
         queryableName: 'CartItem',
         isView: false);
+  }
+
+  @override
+  Future<List<CartItem>> getAllItems() async {
+    return _queryAdapter.queryList('SELECT * FROM CartItem',
+        mapper: (Map<String, Object?> row) => CartItem(
+            id: row['id'] as int,
+            title: row['title'] as String,
+            image: row['image'] as String,
+            price: row['price'] as double,
+            quantity: row['quantity'] as int));
   }
 
   @override

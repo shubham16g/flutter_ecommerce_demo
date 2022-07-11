@@ -4,10 +4,10 @@ abstract class ProductState {}
 
 class ProductInitial extends ProductState {}
 
-class ProductLoaded extends ProductState {
+class ProductsUpdated extends ProductState {
   final List<ProductEntity?> products;
   final String? error;
-  ProductLoaded(this.products, {this.error});
+  ProductsUpdated(this.products, {this.error});
 }
 
 class ProductLoadError extends ProductState {

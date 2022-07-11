@@ -8,12 +8,12 @@ import '../entities/cart_item.dart';
 
 part 'app_database.g.dart';
 
-@Database(version: 2, entities: [CartItem])
+@Database(version: 3, entities: [CartItem])
 abstract class AppDatabase extends FloorDatabase{
   CartDao get cartDao;
 
   static get instance async {
-    return await $FloorAppDatabase.databaseBuilder('app_database1.db').build();
+    return await $FloorAppDatabase.databaseBuilder('app_database2.db').build();
   }
 }
 

@@ -1,3 +1,4 @@
+import 'package:ecom/common/widgets/cart_button.dart';
 import 'package:ecom/di/service_locator.dart';
 import 'package:ecom/floor/entities/cart_item.dart';
 import 'package:ecom/ui/cart/bloc/cart_cubit.dart';
@@ -148,13 +149,11 @@ class CartItemCard extends StatelessWidget {
                   Row(
                     children: [
                       const Expanded(child: Text("Quantity")),
-                      _iconButton(Icons.remove, (){
-                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, entity.quantity - 1);
-                      }),
-                      SizedBox(width: 40, child: Center(child: Text("${entity.quantity}"))),
-                      _iconButton(Icons.add, (){
-                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, entity.quantity + 1);
-                      }),
+                      CartButton(quantity: entity.quantity, onAdd: (qty){
+                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, qty);
+                      }, onRemove: (qty){
+                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, qty);
+                      })
                     ],
                   ),
                 ],
@@ -166,19 +165,3 @@ class CartItemCard extends StatelessWidget {
     );
   }
 }
-
-Widget _iconButton(IconData iconData, VoidCallback onPressed)=>
-    Material(
-      shape: const CircleBorder(),
-      color: Colors.blue[200],
-      child: InkWell(
-        splashColor: Colors.white.withOpacity(0.5),
-        borderRadius: const BorderRadius.all(Radius.circular(50)),
-        onTap: onPressed,
-        child: Padding(
-          padding: const EdgeInsets.all(2),
-          child: Icon(iconData),
-        ),
-      ),
-    );
-

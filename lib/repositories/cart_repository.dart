@@ -27,5 +27,6 @@ class CartRepository {
     _cartDao.updateQuantity(id, quantity);
   }
 
-  Stream<List<CartItem>> getAllCartItems() => _cartDao.getAllCartItems();
+  Stream<List<CartItem>> allItemsStream() => _cartDao.allItemsStream();
+  Future<List<CartItem>> getAllItems() => _cartDao.getAllItems();
 }

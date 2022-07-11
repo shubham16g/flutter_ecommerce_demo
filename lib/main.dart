@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool?>(
+      /// Set app environment here
       future: getItInit(Env.prod()),
       builder: (context, s) {
           return s.connectionState == ConnectionState.done

@@ -89,7 +89,7 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.only(top:8, left: 8, right: 8,),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -103,7 +103,7 @@ class CartItemCard extends StatelessWidget {
         color: Colors.white,
       ),
       clipBehavior: Clip.antiAlias,
-      height: 150,
+      height: 157,
       margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,7 +134,7 @@ class CartItemCard extends StatelessWidget {
                         fontSize: 16, fontWeight: FontWeight.w500),
                   ),
                   const SizedBox(
-                    height: 16,
+                    height: 12,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

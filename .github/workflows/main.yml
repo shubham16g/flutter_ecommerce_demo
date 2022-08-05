@@ -1,3 +1,9 @@
+# Note:
+# Make sure that the github pages is already set to Github Actions, otherwise the workflow will fail.
+#
+# Author: Shubham Gupta
+# github: https://github.com/shubham-gupta-16/
+
 name: CI
 on:
   push:
@@ -19,7 +25,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_web:
+  flutter_web_deploy:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -31,8 +37,9 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: 'stable'
+#          flutter-version: '3.0.5'  // uncomment this line if you want to use a specific version of Flutter
       - run: flutter pub get
-      - run: flutter build web --release --base-href /${{ github.event.repository.name }}/
+      - run: flutter build web --base-href /${{ github.event.repository.name }}/
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:

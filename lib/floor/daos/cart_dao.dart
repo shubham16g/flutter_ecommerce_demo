@@ -42,4 +42,43 @@ abstract class CartDao {
       await updateCartItem(cartItem);
     }
   }
+
+  static CartDao get nullInstance => _NullCartDao();
+}
+
+class _NullCartDao extends CartDao {
+
+  Stream<List<CartItem>> _countStream() async* {
+  }
+
+  @override
+  Stream<List<CartItem>> allItemsStream() {
+    return _countStream();
+  }
+
+  @override
+  Future<void> deleteCartItem(CartItem cartItem) {
+    return Future.delayed(const Duration(milliseconds: 20));
+  }
+
+  @override
+  Future<List<CartItem>> getAllItems() {
+    return Future.delayed(const Duration(milliseconds: 20));
+  }
+
+  @override
+  Future<CartItem?> getCartItem(int id) {
+    return Future.delayed(const Duration(milliseconds: 20));
+  }
+
+  @override
+  Future<void> insertCartItem(CartItem cartItem) {
+    return Future.delayed(const Duration(milliseconds: 20));
+  }
+
+  @override
+  Future<void> updateCartItem(CartItem cartItem) {
+    return Future.delayed(const Duration(milliseconds: 20));
+
+  }
 }

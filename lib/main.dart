@@ -16,16 +16,18 @@ class MyApp extends StatelessWidget {
       /// Set app environment here
       future: getItInit(Env.prod()),
       builder: (context, s) {
+        print(s.connectionState.toString());
           return s.connectionState == ConnectionState.done
               ? MaterialApp(
                   title: 'Shopping Mall',
+                  debugShowCheckedModeBanner: false,
                   theme: ThemeData(
-                    splashFactory: InkRipple.splashFactory,
-                      primarySwatch: Colors.blue,
-                      appBarTheme: const AppBarTheme(
-                        backgroundColor: Color(0xFF6493FF),
-                        elevation: 0,
-                      )),
+                    useMaterial3: true,
+                    colorSchemeSeed: Colors.blue,
+                    appBarTheme: AppBarTheme(
+                      backgroundColor: Colors.blue[300],
+                    )
+                  ),
                   initialRoute: Routes.productsPage,
                   onGenerateRoute: RouteGenerator.builder,
                 )

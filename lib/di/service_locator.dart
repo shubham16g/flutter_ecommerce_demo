@@ -3,7 +3,6 @@ import 'package:dio/dio.dart';
 import 'package:ecom/di/db_module.dart';
 import 'package:ecom/di/endpoint_module.dart';
 import 'package:ecom/di/repository_module.dart';
-import 'package:ecom/floor/db/app_database.dart';
 import 'package:ecom/network/dio_client.dart';
 import 'package:get_it/get_it.dart';
 

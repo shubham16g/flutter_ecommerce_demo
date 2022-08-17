@@ -16,9 +16,11 @@ class DioClient{
       options.headers['token'] = token;
       return handler.next(options); //continue
     }, onResponse: (response, handler) {
+      print(response);
       response.data = json.decode(response.data);
       return handler.next(response); // continue
     }, onError: (DioError e, handler) {
+      print(e);
       return handler.next(e); //continue
     }));
     return dio;

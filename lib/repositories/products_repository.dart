@@ -1,7 +1,7 @@
 
 
 import 'package:dio/dio.dart';
-import 'package:ecom/floor/daos/cart_dao.dart';
+import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/models/request/products_request.dart';
 import 'package:ecom/network/network_error.dart';
 

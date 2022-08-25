@@ -1,6 +1,6 @@
 import 'package:ecom/common/widgets/cart_button.dart';
 import 'package:ecom/di/service_locator.dart';
-import 'package:ecom/floor/entities/cart_item.dart';
+import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/ui/cart/bloc/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

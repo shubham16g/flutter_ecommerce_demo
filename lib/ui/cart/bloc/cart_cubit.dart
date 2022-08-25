@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:ecom/floor/entities/cart_item.dart';
+import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/repositories/cart_repository.dart';
 
 import '../../../common/classes/pagination_manager.dart';

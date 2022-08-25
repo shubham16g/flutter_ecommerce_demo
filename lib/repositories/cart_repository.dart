@@ -1,13 +1,6 @@
-import 'package:dio/dio.dart';
-import 'package:ecom/di/service_locator.dart';
-import 'package:ecom/floor/daos/cart_dao.dart';
-import 'package:ecom/floor/db/app_database.dart';
-import 'package:ecom/floor/entities/cart_item.dart';
-import 'package:ecom/models/request/products_request.dart';
+import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/models/response/product_entity.dart';
 
-import '../models/response/products_response.dart';
-import '../network/endpoints/products_endpoint.dart';
 
 class CartRepository {
   final CartDao _cartDao;
@@ -17,9 +10,9 @@ class CartRepository {
   Future<void> addToCart(ProductEntity product) async {
     final oldItem = await _cartDao.getCartItem(product.id);
     if (oldItem != null) {
-      return _cartDao.updateCartItem(CartItem.fromProduct(product, oldItem.quantity + 1));
+      return _cartDao.updateCartItem(cartItemFromProduct(product, oldItem.quantity + 1));
     } else {
-      return _cartDao.insertCartItem(CartItem.fromProduct(product, 1));
+      return _cartDao.insertCartItem(cartItemFromProduct(product, 1));
     }
   }
 

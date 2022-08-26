@@ -1,7 +1,4 @@
 
-
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 
 class DioClient{
@@ -17,7 +14,7 @@ class DioClient{
       return handler.next(options); //continue
     }, onResponse: (response, handler) {
       print(response);
-      response.data = json.decode(response.data);
+      // response.data = json.decode(response.data);
       return handler.next(response); // continue
     }, onError: (DioError e, handler) {
       print(e);

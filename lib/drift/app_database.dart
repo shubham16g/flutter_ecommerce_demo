@@ -40,7 +40,7 @@ class CartDao extends DatabaseAccessor<AppDatabase> with _$CartDaoMixin {
 
   Future<void> insertCartItem(CartItem cartItem) => into(cartItems).insert(cartItem);
 
-  Future<CartItem?> getCartItem(int id) => (select(cartItems)..where((t) => t.id.equals(id))).getSingle();
+  Future<CartItem?> getCartItem(int id) => (select(cartItems)..where((t) => t.id.equals(id))).getSingleOrNull();
 
   Future<void> updateCartItem(CartItem cartItem) => update(cartItems).replace(cartItem);
 

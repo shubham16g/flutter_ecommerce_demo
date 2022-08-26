@@ -9,6 +9,6 @@ part 'products_endpoint.g.dart';
 abstract class ProductsEndpoint {
   factory ProductsEndpoint(Dio dio, {String baseUrl}) = _ProductsEndpoint;
 
-  @POST('/product_list.php')
+  @POST('/products')
   Future<ProductsResponse> getProducts(@Body() ProductsRequest request);
 }

@@ -25,7 +25,7 @@ class _ProductsEndpoint implements ProductsEndpoint {
     final _result = await _dio.fetch<Map<String, dynamic>>(
         _setStreamType<ProductsResponse>(
             Options(method: 'POST', headers: _headers, extra: _extra)
-                .compose(_dio.options, '/product_list.php',
+                .compose(_dio.options, '/products',
                     queryParameters: queryParameters, data: _data)
                 .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
     final value = ProductsResponse.fromJson(_result.data!);

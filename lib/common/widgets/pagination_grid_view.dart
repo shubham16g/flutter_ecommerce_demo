@@ -31,6 +31,7 @@ class _PaginationGridViewState<T> extends State<PaginationGridView<T>> {
   }
 
   void _scrollListener() {
+    debugPrint(controller.position.extentAfter.toString());
     if (controller.position.extentAfter < 50) {
       widget.onScrolledToBottom();
     }

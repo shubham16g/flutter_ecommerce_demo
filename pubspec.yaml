@@ -40,8 +40,8 @@ dependencies:
   dio: ^4.0.6
   get_it: ^7.2.0
   badges: ^2.0.3
-  drift: ^2.0.2+1
-  sqlite3_flutter_libs: ^0.5.9
+  drift: ^2.3.0
+  sqlite3_flutter_libs: ^0.5.12
   path_provider: ^2.0.11
   path: ^1.8.1
 
@@ -53,7 +53,7 @@ dev_dependencies:
     sdk: flutter
 
   build_runner:
-  drift_dev: ^2.0.2
+  drift_dev: ^2.3.2
   retrofit_generator: '>=4.0.0 <5.0.0'
   json_serializable: '>4.4.0'
 

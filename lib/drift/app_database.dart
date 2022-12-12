@@ -8,7 +8,6 @@ part 'app_database.g.dart';
 @DriftDatabase(tables: [CartItems],
     daos: [CartDao])
 class AppDatabase extends _$AppDatabase {
-  // AppDatabase(QueryExecutor e) : super()
   AppDatabase(QueryExecutor e) : super(e);
 
   @override
@@ -17,17 +16,15 @@ class AppDatabase extends _$AppDatabase {
 
 class CartItems extends Table {
 
-  IntColumn get id => integer().unique()();
+  IntColumn get id => integer()();
   TextColumn get title => text().withLength(max: 255)();
   TextColumn get image => text().withLength(max: 255)();
   RealColumn get price => real()();
   IntColumn get quantity => integer()();
 
-
   @override
   Set<Column> get primaryKey => {id};
 
-  static lol() => 'qlq';
 }
 
 @DriftAccessor(tables: [CartItems])

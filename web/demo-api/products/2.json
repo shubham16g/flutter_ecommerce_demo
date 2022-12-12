@@ -1,0 +1,58 @@
+{
+    "status": 200,
+    "message": "success",
+    "totalRecord": 12,
+    "totalPage": 2,
+    "data": [
+        {
+            "id": 8,
+            "slug": "V10_5G_Rugged_Android_11",
+            "title": "V10 5G Rugged Android 11",
+            "description": "India Gadgets - V10 5G Rugged Android 11 Mobile Phone: 8Gb + 128Gb: 48MP Triple Camera: 6.39 HD+ Display: 8500mAh Battery with OTG Reverse Charging: Waterproof Smartphone",
+            "price": 38500,
+            "featured_image": "https:\/\/i.imgur.com\/ZSggWHU.jpeg",
+            "status": "1",
+            "created_at": "2020-04-04T06:34:34.000000Z"
+        },
+        {
+            "id": 9,
+            "slug": "Google_5A_5G_Mobile Black",
+            "title": "Google 5A 5G - Mobile Black",
+            "description": "Released 2021, August 26, 183g, 7.6mm thickness, Android 11, up to Android 12, 128GB storage, no card slot",
+            "price": 37999,
+            "featured_image": "https:\/\/i.imgur.com\/xpYuOiO.jpeg",
+            "status": "1",
+            "created_at": "2021-06-08T06:34:34.000000Z"
+        },
+        {
+            "id": 10,
+            "slug": "Mi_11X_Pro_5G",
+            "title": "Mi 11X Pro 5G",
+            "description": "Mi 11X Pro 5G (Lunar White, 8GB RAM, 128GB Storage) | Snapdragon 888 | 108MP Camera | 6 Month Free Screen Replacement for Prime | Extra Offers on Exchange",
+            "price": 36999,
+            "featured_image": "https:\/\/i.imgur.com\/nCtr2X9.jpeg",
+            "status": "1",
+            "created_at": "2021-05-01T06:34:34.000000Z"
+        },
+        {
+            "id": 11,
+            "slug": "S97_Pro_Rugged_Android_11",
+            "title": "S97 Pro Rugged Android 11",
+            "description": "India Gadgets - S97 Pro Rugged Android 11 Mobile Phone: 8Gb + 128Gb: 48MP Quad Camera: 6.39 HD+ Display: Built-in Laser Rangefinder: 8500mAh Battery: Waterproof Smartphone (Black)",
+            "price": 36500,
+            "featured_image": "https:\/\/i.imgur.com\/Y9364mq.jpeg",
+            "status": "1",
+            "created_at": "2022-01-15T06:34:34.000000Z"
+        },
+        {
+            "id": 12,
+            "slug": "Samsung_Galaxy_M12",
+            "title": "Samsung Galaxy M12",
+            "description": "Samsung Galaxy M12 (Black,4GB RAM, 64GB Storage) 6000 mAh with 8nm Processor | True 48 MP Quad Camera | 90Hz Refresh Rate",
+            "price": 11500,
+            "featured_image": "https:\/\/i.imgur.com\/FydSMdl.jpeg",
+            "status": "1",
+            "created_at": "2021-11-26T06:34:34.000000Z"
+        }
+    ]
+}

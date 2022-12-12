@@ -1,0 +1,78 @@
+{
+    "status": 200,
+    "message": "success",
+    "totalRecord": 12,
+    "totalPage": 2,
+    "data": [
+        {
+            "id": 1,
+            "slug": "Apple_iPhone_13",
+            "title": "Apple iPhone 13",
+            "description": "Apple iPhone 13 (128GB) - Midnight",
+            "price": 74900,
+            "featured_image": "https:\/\/i.imgur.com\/43N1Uog.jpeg",
+            "status": "1",
+            "created_at": "2020-12-01T06:28:42.000000Z"
+        },
+        {
+            "id": 2,
+            "slug": "Apple_iPhone_12",
+            "title": "Apple iPhone 12",
+            "description": "Apple iPhone 12 (128GB) - Black",
+            "price": 59999,
+            "featured_image": "https:\/\/i.imgur.com\/BLi20TR.jpeg",
+            "status": "1",
+            "created_at": "2020-08-08T06:34:34.000000Z"
+        },
+        {
+            "id": 3,
+            "slug": "Samsung_Galaxy_Z_Flip3_5G",
+            "title": "Samsung Galaxy Z Flip3 5G",
+            "description": "Samsung Galaxy Z Flip3 5G (Cream, 8GB RAM, 128GB Storage) with No Cost EMI\/Additional Exchange Offers",
+            "price": 84999,
+            "featured_image": "https:\/\/i.imgur.com\/RjncmoP.jpeg",
+            "status": "1",
+            "created_at": "2021-08-08T06:34:34.000000Z"
+        },
+        {
+            "id": 4,
+            "slug": "iQOO_9_Pro_5G",
+            "title": "iQOO 9 Pro 5G",
+            "description": "iQOO 9 Pro 5G (Dark Cruise, 12GB RAM, 256GB Storage) | Snapdragon 8 Gen 1 Mobile Processor | 120W FlashCharge | Extra Rs.4000 Off on Exchange | Upto 12 Months No Cost EMI",
+            "price": 69990,
+            "featured_image": "https:\/\/i.imgur.com\/yU2It6U.jpeg",
+            "status": "1",
+            "created_at": "2021-12-24T06:34:34.000000Z"
+        },
+        {
+            "id": 5,
+            "slug": "Armor_11T_5G",
+            "title": "Armor 11T 5G",
+            "description": "India Gadgets - Armor 11T 5G Rugged Android 11 Mobile Phone: 8Gb + 256Gb: 48MP Quad Camera with Thermal Imaging Camera: 6.1 HD+ Display: 5200mAh Battery: Waterproof IP68",
+            "price": 57000,
+            "featured_image": "https:\/\/i.imgur.com\/cjQRkhm.jpeg",
+            "status": "1",
+            "created_at": "2020-12-21T06:34:34.000000Z"
+        },
+        {
+            "id": 6,
+            "slug": "V20_5G_Rugged_Android_11",
+            "title": "V20 5G Rugged Android 11",
+            "description": "India Gadgets - V20 5G Rugged Android 11 Mobile Phone: 8Gb + 256Gb: 64MP + 20MP Night Vison Camera: 6.43 AMOLED FHD+ Display: 6000mAh Battery 33W + 15W Fast Wireless",
+            "price": 48500,
+            "featured_image": "https:\/\/i.imgur.com\/tFzawat.jpeg",
+            "status": "1",
+            "created_at": "2020-03-09T06:34:34.000000Z"
+        },
+        {
+            "id": 7,
+            "slug": "Power_Armor_13_Rugged_Android_11",
+            "title": "Power Armor 13 Rugged Android 11",
+            "description": "India Gadgets - Power Armor 13 Rugged Android 11 Mobile Phone: 8Gb + 256Gb: 48MP Quad Camera: 6.81 FHD+ Display: Massive 13200mAh Battery: Waterproof IP68 Smartphone",
+            "price": 44500,
+            "featured_image": "https:\/\/i.imgur.com\/4HyB0zv.jpeg",
+            "status": "1",
+            "created_at": "2021-07-07T06:34:34.000000Z"
+        }
+    ]
+}

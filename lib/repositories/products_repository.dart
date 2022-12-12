@@ -16,7 +16,7 @@ class ProductsRepository {
 
   Future<ProductsResponse> getProducts(int page) async {
     try {
-      final response = await _productsEndpoint.getProducts(ProductsRequest(page: page, perPage: 5));
+      final response = await _productsEndpoint.getProducts(page);
       if(response.status == 200) {
         return response;
       } else {

@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:ecom/app/routes.dart';
 import 'package:ecom/common/utils/ui_utils.dart';
-import 'package:ecom/common/widgets/cart_button.dart';
 import 'package:ecom/common/widgets/pagination_grid_view.dart';
 import 'package:ecom/models/response/product_entity.dart';
 import 'package:ecom/ui/products/bloc/product_cubit.dart';
@@ -9,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../di/service_locator.dart';
+import '../widgets/item_card.dart';
 
 class ProductsPage extends StatefulWidget {
   const ProductsPage({Key? key}) : super(key: key);
@@ -80,7 +80,9 @@ class _ProductsPageState extends State<ProductsPage> {
               itemBuilder: (context, item) {
                 return ItemCard(entity: item);
               },
-              onScrolledToBottom: () {},
+              onScrolledToBottom: () {
+                BlocProvider.of<ProductCubit>(context).loadsProducts();
+              },
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
                 mainAxisSpacing: 20,
                 crossAxisSpacing: 20,
@@ -124,79 +126,6 @@ class _ProductsPageState extends State<ProductsPage> {
     super.initState();
     print('init called');
     // locator<ProductCubit>().loadsProducts();
-  }
-}
-
-class ItemCard extends StatelessWidget {
-  final ProductEntity entity;
-
-  const ItemCard({Key? key, required this.entity}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.08),
-            spreadRadius: 2,
-            blurRadius: 3,
-            offset: Offset(0, 2), // changes position of shadow
-          ),
-        ],
-        borderRadius: BorderRadius.circular(13),
-        color: Colors.white,
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Padding(
-        padding: const EdgeInsets.only(left: 8, right: 8, top: 12),
-        child: Stack(
-          children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(
-                  height: 150,
-                  child: Center(
-                    child: Image.network(
-                      entity.image,
-                      errorBuilder: (context, o, s) =>
-                          Container(color: Colors.grey[200]),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 12,
-                ),
-                SizedBox(
-                    child: Text(
-                  entity.title,
-                  style: const TextStyle(
-                      fontSize: 16, fontWeight: FontWeight.w500),
-                )),
-                const SizedBox(
-                  height: 5,
-                ),
-                Text("\$${entity.price}"),
-              ],
-            ),
-            Positioned(
-              bottom: 5,
-              right: 0,
-              child: CartButton(
-                  quantity: entity.quantity,
-                  onAdd: (qty) {
-                    BlocProvider.of<ProductCubit>(context).addToCart(entity);
-                  },
-                  onRemove: (qty) {
-                    BlocProvider.of<ProductCubit>(context)
-                        .updateCartQuantity(entity.id, qty);
-                  }),
-            )
-          ],
-        ),
-      ),
-    );
   }
 }
 

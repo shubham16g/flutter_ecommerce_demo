@@ -36,6 +36,7 @@ class ProductCubit extends Cubit<ProductState> {
     }
   }
 
+  //this is a custom made solution for pagination handling
   final paginationManager = PaginationManager<ProductEntity>();
 
   Future<void> loadsProducts() async {

@@ -4,9 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/repositories/cart_repository.dart';
 
-import '../../../common/classes/pagination_manager.dart';
 import '../../../models/response/product_entity.dart';
-import '../../../repositories/products_repository.dart';
 
 
 part 'cart_state.dart';

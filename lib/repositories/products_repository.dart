@@ -1,8 +1,5 @@
 
 
-import 'package:dio/dio.dart';
-import 'package:ecom/drift/app_database.dart';
-import 'package:ecom/models/request/products_request.dart';
 import 'package:ecom/network/network_error.dart';
 
 import '../models/response/products_response.dart';

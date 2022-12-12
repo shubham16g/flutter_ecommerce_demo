@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:ecom/app/routes.dart';
 import 'package:ecom/common/utils/ui_utils.dart';
-import 'package:ecom/common/widgets/cart_button.dart';
 import 'package:ecom/common/widgets/pagination_grid_view.dart';
 import 'package:ecom/models/response/product_entity.dart';
 import 'package:ecom/ui/products/bloc/product_cubit.dart';

@@ -4,7 +4,7 @@
 # Author: Shubham Gupta
 # github: https://github.com/shubham-gupta-16/
 
-name: CI
+name: Deploy CI
 on:
   push:
     branches:

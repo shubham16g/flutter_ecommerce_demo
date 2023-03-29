@@ -4,12 +4,9 @@
 # Author: Shubham Gupta
 # github: https://github.com/shubham-gupta-16/
 
-name: Deploy CI
+name: CI
 on:
   push:
-    branches:
-      - master
-  pull_request:
     branches:
       - master
 

@@ -6,13 +6,12 @@ import 'package:ecom/repositories/cart_repository.dart';
 
 import '../../../models/response/product_entity.dart';
 
-
 part 'cart_state.dart';
 
 class CartCubit extends Cubit<CartState> {
   final CartRepository _cartRepository;
   late StreamSubscription _subscription;
-  CartCubit(this._cartRepository) : super(CartInitial()){
+  CartCubit(this._cartRepository) : super(CartInitial()) {
     _subscription = _cartRepository.allItemsStream().listen((list) {
       if (list.isEmpty) {
         emit(CartEmpty());
@@ -22,14 +21,13 @@ class CartCubit extends Cubit<CartState> {
     });
   }
 
-
   // Stream<List<CartItem>> get cartItemStream => _cartRepository.getAllCartItems();
 
-  void addToCart(ProductEntity entity){
+  void addToCart(ProductEntity entity) {
     _cartRepository.addToCart(entity);
   }
 
-  void updateCartQuantity(int id, int quantity){
+  void updateCartQuantity(int id, int quantity) {
     _cartRepository.updateCartQuantity(id, quantity);
   }
 
@@ -38,6 +36,4 @@ class CartCubit extends Cubit<CartState> {
     _subscription.cancel();
     return super.close();
   }
-
-
 }

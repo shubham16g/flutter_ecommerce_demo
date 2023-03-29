@@ -15,7 +15,7 @@ class RouteGenerator {
       case Routes.cartPage:
         return CartPage();
 
-    /* Default Page */
+      /* Default Page */
       default:
         return const Scaffold(
           body: Center(child: Text("404 NOT FOUND")),
@@ -29,5 +29,4 @@ class RouteGenerator {
     return MaterialPageRoute(
         builder: (buildContext) => page, settings: settings);
   }
-
 }

@@ -1,4 +1,4 @@
-import 'package:badges/badges.dart';
+import 'package:badges/badges.dart' as badges;
 import 'package:ecom/app/routes.dart';
 import 'package:ecom/common/utils/ui_utils.dart';
 import 'package:ecom/common/widgets/pagination_grid_view.dart';
@@ -30,8 +30,10 @@ class _ProductsPageState extends State<ProductsPage> {
             BlocBuilder<ProductCubit, ProductState>(
               builder: (context, state) {
                 return IconButton(
-                  icon: Badge(
-                      badgeColor: Colors.white,
+                  icon: badges.Badge(
+                      badgeStyle: const badges.BadgeStyle(
+                        badgeColor: Colors.white,
+                      ),
                       badgeContent: state is ProductsUpdated
                           ? Text(
                               state.products
@@ -128,4 +130,3 @@ class _ProductsPageState extends State<ProductsPage> {
     // locator<ProductCubit>().loadsProducts();
   }
 }
-

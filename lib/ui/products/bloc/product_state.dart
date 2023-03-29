@@ -11,7 +11,6 @@ class ProductsUpdated extends ProductState {
 }
 
 class ProductLoadError extends ProductState {
-
   final String error;
   ProductLoadError(this.error);
 }

@@ -13,7 +13,11 @@ class CartItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.only(top:8, left: 8, right: 8,),
+      padding: const EdgeInsets.only(
+        top: 8,
+        left: 8,
+        right: 8,
+      ),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -73,11 +77,16 @@ class CartItemCard extends StatelessWidget {
                   Row(
                     children: [
                       const Expanded(child: Text("Quantity")),
-                      CartButton(quantity: entity.quantity, onAdd: (qty){
-                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, qty);
-                      }, onRemove: (qty){
-                        BlocProvider.of<CartCubit>(context).updateCartQuantity(entity.id, qty);
-                      })
+                      CartButton(
+                          quantity: entity.quantity,
+                          onAdd: (qty) {
+                            BlocProvider.of<CartCubit>(context)
+                                .updateCartQuantity(entity.id, qty);
+                          },
+                          onRemove: (qty) {
+                            BlocProvider.of<CartCubit>(context)
+                                .updateCartQuantity(entity.id, qty);
+                          })
                     ],
                   ),
                 ],

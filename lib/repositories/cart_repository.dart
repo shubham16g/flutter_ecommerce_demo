@@ -1,7 +1,6 @@
 import 'package:ecom/drift/app_database.dart';
 import 'package:ecom/models/response/product_entity.dart';
 
-
 class CartRepository {
   final CartDao _cartDao;
 
@@ -10,7 +9,8 @@ class CartRepository {
   Future<void> addToCart(ProductEntity product) async {
     final oldItem = await _cartDao.getCartItem(product.id);
     if (oldItem != null) {
-      return _cartDao.updateCartItem(cartItemFromProduct(product, oldItem.quantity + 1));
+      return _cartDao
+          .updateCartItem(cartItemFromProduct(product, oldItem.quantity + 1));
     } else {
       return _cartDao.insertCartItem(cartItemFromProduct(product, 1));
     }

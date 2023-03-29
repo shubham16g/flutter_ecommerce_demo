@@ -24,7 +24,7 @@ class CartPage extends StatelessWidget {
                 child: CircularProgressIndicator(),
               );
             }
-            if (state is CartEmpty){
+            if (state is CartEmpty) {
               return const Center(
                 child: Text("Cart is empty"),
               );

@@ -1,14 +1,16 @@
-
-
 import 'package:flutter/material.dart';
 
 class CartButton extends StatelessWidget {
-
   final int quantity;
   final Function(int qty) onAdd;
   final Function(int qty) onRemove;
 
-  const CartButton({Key? key, required this.quantity, required this.onAdd, required this.onRemove}) : super(key: key);
+  const CartButton(
+      {Key? key,
+      required this.quantity,
+      required this.onAdd,
+      required this.onRemove})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +30,11 @@ class CartButton extends StatelessWidget {
       height: 48,
       child: Row(
         children: [
-          _iconButton(Icons.remove, (){
+          _iconButton(Icons.remove, () {
             onRemove(quantity - 1);
           }),
           SizedBox(width: 40, child: Center(child: Text("$quantity"))),
-          _iconButton(Icons.add, (){
+          _iconButton(Icons.add, () {
             onAdd(quantity + 1);
           })
         ],
@@ -40,8 +42,7 @@ class CartButton extends StatelessWidget {
     );
   }
 
-  Widget _iconButton(IconData iconData, VoidCallback onPressed)=>
-      Material(
+  Widget _iconButton(IconData iconData, VoidCallback onPressed) => Material(
         shape: const CircleBorder(),
         color: Colors.blue[200],
         child: InkWell(

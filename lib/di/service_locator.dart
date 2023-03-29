@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:ecom/di/db_module.dart';
 import 'package:ecom/di/endpoint_module.dart';
@@ -22,6 +21,5 @@ Future<bool?> getItInit(Env env) async {
 }
 
 void _setupDefaultDio(String baseUrl, String token) {
-  locator.registerLazySingleton<Dio>(
-          () => DioClient.build(baseUrl, token));
+  locator.registerLazySingleton<Dio>(() => DioClient.build(baseUrl, token));
 }

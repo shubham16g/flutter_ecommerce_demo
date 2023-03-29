@@ -1,8 +1,7 @@
-
 import 'package:dio/dio.dart';
 
-class DioClient{
-  static Dio build(String baseUrl, String token){
+class DioClient {
+  static Dio build(String baseUrl, String token) {
     final dio = Dio(BaseOptions(baseUrl: baseUrl));
     dio.interceptors.add(InterceptorsWrapper(onRequest: (options, handler) {
       print('************************************');

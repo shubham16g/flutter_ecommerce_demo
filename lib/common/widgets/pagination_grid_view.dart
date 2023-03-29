@@ -7,7 +7,8 @@ class PaginationGridView<T> extends StatefulWidget {
     required this.onScrolledToBottom,
     required this.itemBuilder,
     required this.gridDelegate,
-    this.loaderBuilder, this.padding,
+    this.loaderBuilder,
+    this.padding,
   }) : super(key: key);
 
   final EdgeInsetsGeometry? padding;

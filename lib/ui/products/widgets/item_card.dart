@@ -1,4 +1,3 @@
-
 import 'package:ecom/common/widgets/cart_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -49,10 +48,10 @@ class ItemCard extends StatelessWidget {
                 ),
                 SizedBox(
                     child: Text(
-                      entity.title,
-                      style: const TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.w500),
-                    )),
+                  entity.title,
+                  style: const TextStyle(
+                      fontSize: 16, fontWeight: FontWeight.w500),
+                )),
                 const SizedBox(
                   height: 5,
                 ),

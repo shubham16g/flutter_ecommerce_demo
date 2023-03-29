@@ -13,21 +13,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<bool?>(
-      /// Set app environment here
-      future: getItInit(Env.prod()),
-      builder: (context, s) {
-        print(s.connectionState.toString());
+
+        /// Set app environment here
+        future: getItInit(Env.prod()),
+        builder: (context, s) {
+          print(s.connectionState.toString());
           return s.connectionState == ConnectionState.done
               ? MaterialApp(
                   title: 'Shopping Mall',
                   debugShowCheckedModeBanner: false,
                   theme: ThemeData(
-                    useMaterial3: true,
-                    colorSchemeSeed: Colors.blue,
-                    appBarTheme: AppBarTheme(
-                      backgroundColor: Colors.blue[300],
-                    )
-                  ),
+                      useMaterial3: true,
+                      colorSchemeSeed: Colors.blue,
+                      appBarTheme: AppBarTheme(
+                        backgroundColor: Colors.blue[300],
+                      )),
                   initialRoute: Routes.productsPage,
                   onGenerateRoute: RouteGenerator.builder,
                 )

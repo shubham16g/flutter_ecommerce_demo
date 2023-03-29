@@ -17,8 +17,8 @@ class ProductCubit extends Cubit<ProductState> {
   ProductCubit(this._productsRepository, this._cartRepository)
       : super(ProductInitial()) {
     loadsProducts();
-    _subscription = _cartRepository.allItemsStream().listen((list){
-      if(paginationManager.list.isEmpty) return;
+    _subscription = _cartRepository.allItemsStream().listen((list) {
+      if (paginationManager.list.isEmpty) return;
       _updateList(list);
       emit(ProductsUpdated(paginationManager.list));
     });
@@ -67,10 +67,10 @@ class ProductCubit extends Cubit<ProductState> {
   void addToCart(ProductEntity entity) {
     _cartRepository.addToCart(entity);
   }
-  void updateCartQuantity(int id, int quantity){
+
+  void updateCartQuantity(int id, int quantity) {
     _cartRepository.updateCartQuantity(id, quantity);
   }
-
 
   @override
   Future<void> close() {

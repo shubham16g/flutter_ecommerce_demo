@@ -106,10 +106,10 @@ class _ProductsPageState extends State<ProductsPage> {
                     onPressed: () {
                       BlocProvider.of<ProductCubit>(context).loadsProducts();
                     },
-                    child: const Text("Retry"),
                     style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all(
+                        backgroundColor: WidgetStateProperty.all(
                             Colors.blue.withOpacity(0.2))),
+                    child: const Text("Retry"),
                   ),
                 ],
               ),

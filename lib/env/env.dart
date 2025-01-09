@@ -10,7 +10,7 @@ class Prod extends Env {
   Prod._() : super._();
   @override
   String get baseUrl =>
-      'https://shubham-gupta-16.github.io/flutter_ecommerce_demo/demo-api';
+      'https://shubham16g.github.io/flutter_ecommerce_demo/demo-api';
 
   //this token is fake as the server doesn't need it, it will be useful when dealing with real apis
   @override
